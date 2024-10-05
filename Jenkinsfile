@@ -23,7 +23,7 @@ pipeline {
 		}
 		stage('Deploy') {
 			steps {
-			    bat "docker rm -f api-gateway"
+			    bat "docker rm -f api-server"
 			    bat "docker rmi -f api-image"
 			    bat "docker build -t api-image ."
                 bat "docker run -p 8060:8060 -d --name api-server api-image"
